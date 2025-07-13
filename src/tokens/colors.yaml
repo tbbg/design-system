@@ -1,0 +1,27 @@
+# Color tokens for the design system
+props:
+  # Primary colors
+  color_primary_50:
+    value: "#f0f9ff"
+    comment: "Primary color - lightest shade"
+  color_primary_500:
+    value: "#3b82f6"
+    comment: "Primary color - base"
+  color_primary_900:
+    value: "#1e3a8a"
+    comment: "Primary color - darkest shade"
+
+  # Semantic colors
+  color_success:
+    value: "#10b981"
+    comment: "Success state color"
+  color_warning:
+    value: "#f59e0b"
+    comment: "Warning state color"
+  color_error:
+    value: "#ef4444"
+    comment: "Error state color"
+
+global:
+  type: color
+  category: color
