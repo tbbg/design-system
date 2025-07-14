@@ -9,6 +9,11 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    // setupFiles: "./tests/setup.js",
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
