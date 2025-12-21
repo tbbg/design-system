@@ -1,6 +1,6 @@
 {
   "name": "@rpgroot/design-system",
-  "version": "0.0.1-rc0",
+  "version": "0.0.1",
   "description": "RpgRoot Design System",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -24,7 +24,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix",
     "lint:check": "eslint . --ext .vue,.js,.jsx,.ts,.tsx",
     "lint:staged": "lint-staged",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.5.17"
