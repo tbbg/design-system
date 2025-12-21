@@ -44,6 +44,12 @@ const handleClick = (event: Event) => {
   @apply inline-flex items-center justify-center;
   @apply font-medium rounded-md transition-colors;
   @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  border: 2px solid gray;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 255px;
+  border-bottom-right-radius: 255px 15px;
+  border-bottom-left-radius: 15px 255px;
+  padding: 5px 7px;
 
   &--primary {
     @apply bg-primary-500 text-white;
