@@ -51,7 +51,8 @@
     "vite": "^7.0.4",
     "vitepress": "^1.6.4",
     "vitest": "^3.2.4",
-    "vue-eslint-parser": "^10.2.0"
+    "vue-eslint-parser": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0"
   },
   "directories": {
     "doc": "docs"
@@ -69,8 +70,5 @@
   "bugs": {
     "url": "https://github.com/tbbg/design-system/issues"
   },
-  "homepage": "https://github.com/tbbg/design-system#readme",
-  "dependencies": {
-    "@vue/eslint-config-typescript": "^14.6.0"
-  }
+  "homepage": "https://github.com/tbbg/design-system#readme"
 }
