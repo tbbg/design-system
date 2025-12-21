@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  # push:
+  # branches: [ main, master, develop ]
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # - name: Install React dependencies (required for Storybook)
+      # run: npm install --save-dev react react-dom
+
+      - name: Run ESLint
+        run: npm run lint
+
+      # - name: Run unit tests
+      #   run: npm run test:unit
+      #   env:
+      #     CI: true
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Start Storybook server
+        run: |
+          npm run storybook &
+          npx wait-on http://localhost:6006 --timeout 60000
+
+      - name: Install Playwright dependencies
+        run: npx playwright install --with-deps
+
+      - name: Run Storybook tests
+        run: npm run test
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: matrix.node-version == '24.x'
+        with:
+          name: dist-files
+          path: |
+            dist/
+            storybook-static/
+          retention-days: 7
+
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run security audit
+        run: npm audit --audit-level=moderate

@@ -1,0 +1,71 @@
+{
+  "name": "@rpgroot/design-system",
+  "version": "0.0.1",
+  "description": "RpgRoot Design System",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:system": "vite build --config vite.lib.config.js",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix",
+    "lint:check": "eslint . --ext .vue,.js,.jsx,.ts,.tsx",
+    "lint:staged": "lint-staged",
+    "type-check": "vue-tsc --noEmit",
+    "prepublish": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^9.0.16",
+    "@storybook/addon-designs": "^10.0.1",
+    "@storybook/addon-links": "^9.0.16",
+    "@storybook/vue3": "^9.0.16",
+    "@storybook/vue3-vite": "^9.0.16",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/test-utils": "^2.4.0",
+    "eslint-plugin-vue": "^10.3.0",
+    "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "jiti": "^2.4.2",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sass-embedded": "^1.89.2",
+    "storybook": "^9.0.16",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbbg/design-system.git"
+  },
+  "keywords": [
+    "rpgroot",
+    "design-system"
+  ],
+  "author": "resurrectdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tbbg/design-system/issues"
+  },
+  "homepage": "https://github.com/tbbg/design-system#readme"
+}
