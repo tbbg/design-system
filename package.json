@@ -2,17 +2,25 @@
   "name": "@rpgroot/design-system",
   "version": "0.0.1",
   "description": "RpgRoot Design System",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./style.css": "./dist/index.css"
+  },
   "files": [
     "dist"
   ],
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:system": "vite build --config vite.lib.config.js",
+    "build": "vite build && vue-tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --noEmit false --allowImportingTsExtensions false --outDir dist/types",
+    "build:system": "npm run build",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "storybook": "storybook dev -p 6006",
@@ -26,7 +34,7 @@
     "prepublish": "npm run build"
   },
   "peerDependencies": {
-    "vue": "^3.5.17"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^9.0.16",
@@ -49,7 +57,8 @@
     "vite": "^7.0.4",
     "vitest": "^3.2.4",
     "vue-eslint-parser": "^10.2.0",
-    "@vue/eslint-config-typescript": "^14.6.0"
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "vue-tsc": "^2.2.12"
   },
   "directories": {
     "doc": "docs"

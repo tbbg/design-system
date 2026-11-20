@@ -41,48 +41,71 @@ const handleClick = (event: Event) => {
 
 <style lang="scss" scoped>
 .ds-button {
-  @apply inline-flex items-center justify-center;
-  @apply font-medium rounded-md transition-colors;
-  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-  border: 2px solid gray;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 255px;
-  border-bottom-right-radius: 255px 15px;
-  border-bottom-left-radius: 15px 255px;
-  padding: 5px 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-sm);
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    border-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
 
   &--primary {
-    @apply bg-primary-500 text-white;
-    @apply hover:bg-primary-600;
-    @apply focus:ring-primary-500;
+    background: var(--ds-color-accent);
+    color: #172019;
+
+    &:hover:not(:disabled) {
+      background: var(--ds-color-accent-strong);
+      transform: translateY(-1px);
+    }
   }
 
   &--secondary {
-    @apply bg-gray-100 text-gray-900;
-    @apply hover:bg-gray-200;
-    @apply focus:ring-gray-500;
+    border-color: var(--ds-color-border);
+    background: var(--ds-color-surface-raised);
+    color: var(--ds-color-text);
+
+    &:hover:not(:disabled) {
+      border-color: var(--ds-color-border-strong);
+      background: #223239;
+    }
   }
 
   &--outline {
-    @apply border border-gray-300 bg-white text-gray-700;
-    @apply hover:bg-gray-50;
-    @apply focus:ring-gray-500;
+    border-color: var(--ds-color-border-strong);
+    background: transparent;
+    color: var(--ds-color-text);
+
+    &:hover:not(:disabled) {
+      background: var(--ds-color-surface-raised);
+    }
   }
 
   &--small {
-    @apply px-3 py-1.5 text-sm;
+    min-height: 2rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.82rem;
   }
 
   &--medium {
-    @apply px-4 py-2 text-base;
+    min-height: 2.45rem;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.92rem;
   }
 
   &--large {
-    @apply px-6 py-3 text-lg;
+    min-height: 2.85rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
   }
 
   &--disabled {
-    @apply opacity-50 cursor-not-allowed;
+    cursor: not-allowed;
+    opacity: 0.48;
   }
 }
 </style>

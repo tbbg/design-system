@@ -1,12 +1,14 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { resolve } from "path";
+import { fileURLToPath, URL } from "node:url";
+
+const sourceDirectory = fileURLToPath(new URL("./src", import.meta.url));
 
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      "@": sourceDirectory,
     },
   },
   test: {
@@ -16,10 +18,11 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
       name: "rpgroot",
       formats: ["es"], // avoid UMD/IIFE
       fileName: () => "index.js",
+      cssFileName: "index",
     },
     rollupOptions: {
       external: ["vue"],

@@ -1,20 +1,28 @@
-import type { App } from "vue";
+import type { App, Plugin } from "vue";
+import "./styles/tokens.css";
 import Button from "./components/atoms/Button.vue";
-// import Card from "./components/molecules/Card.vue";
-// import Header from "./components/organisms/Header.vue";
+import ChatDock from "./components/organisms/ChatDock.vue";
+import GameLayout from "./components/layout/GameLayout.vue";
+import Panel from "./components/molecules/Panel.vue";
+import PlayerIdentity from "./components/molecules/PlayerIdentity.vue";
+import Stat from "./components/molecules/Stat.vue";
 
-// Export individual components
-export { Button };
+export { Button, ChatDock, GameLayout, Panel, PlayerIdentity, Stat };
+export type { ButtonProps } from "./components/atoms/Button.vue";
 
-// Export plugin for global registration
-export default {
+const components = [
+  ["DsButton", Button],
+  ["DsChatDock", ChatDock],
+  ["DsGameLayout", GameLayout],
+  ["DsPanel", Panel],
+  ["DsPlayerIdentity", PlayerIdentity],
+  ["DsStat", Stat],
+] as const;
+
+const plugin: Plugin = {
   install(app: App) {
-    app.component("DsButton", Button);
-    // app.component("DsCard", Card);
-    // app.component("DsHeader", Header);
+    components.forEach(([name, component]) => app.component(name, component));
   },
 };
 
-// Export types
-export type { ButtonProps } from "./components/atoms/Button.vue";
-// export type { CardProps } from "./components/molecules/Card.vue";
+export default plugin;
