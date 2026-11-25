@@ -17,6 +17,9 @@
   --ds-color-surface-inset: #0f181c;
   --ds-color-border: #2a3a40;
   --ds-color-border-strong: #40545a;
+  --ds-color-frame: #806442;
+  --ds-color-frame-highlight: #c09a64;
+  --ds-color-frame-shadow: #392f26;
   --ds-color-text: #edf2ed;
   --ds-color-text-muted: #9eaeaa;
   --ds-color-accent: #c1d5a4;

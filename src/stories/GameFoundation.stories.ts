@@ -39,7 +39,7 @@ export const PlayScreen: Story = {
             </div>
           </Panel>
         </template>
-        <Panel title="The old bridge" subtitle="North bank · light rain">
+        <Panel title="The old bridge" subtitle="North bank · light rain" frame="ornate">
           <div style="display:grid;place-items:center;min-height:18rem;border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-sm);background:radial-gradient(ellipse at 50% 70%,#273b3b 0%,#172329 54%,#121a1e 100%);color:var(--ds-color-text-muted)">
             A calm space for the active game scene
           </div>
