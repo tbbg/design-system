@@ -38,16 +38,20 @@ narrow screens.
 
 ## Components
 
-| Component        | Purpose                                                     | Public props / slots                                                                             |
-| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `GameLayout`     | Responsive header, side rails, main region, and chat region | `leftLabel`, `rightLabel`; `header`, `left`, default, `right`, `chat` slots                      |
-| `Panel`          | Titled surface with optional action and footer areas        | `title`, `subtitle`, `tone` (`default` or `inset`); `actions`, default, `footer` slots           |
-| `Stat`           | Labelled numeric or text value                              | Required `label`, `value`; optional `unit`, `tone` (`neutral`, `accent`, `success`, `warning`)   |
-| `PlayerIdentity` | Avatar or initials, name, subtitle, and presence state      | Required `name`; optional `subtitle`, `avatarUrl`, `status`, `statusLabel`                       |
-| `ChatDock`       | Dismissible chat surface with a persistent reopen control   | `v-model` (`modelValue`, defaults to `true`), `title`, `reopenLabel`, `closeLabel`; default slot |
+| Component        | Purpose                                                     | Public props / slots                                                                                                     |
+| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `GameLayout`     | Responsive header, side rails, main region, and chat region | `leftLabel`, `rightLabel`; `header`, `left`, default, `right`, `chat` slots                                              |
+| `Panel`          | Titled surface with optional action and footer areas        | `title`, `subtitle`, `tone` (`default` or `inset`), `frame` (`standard` or `ornate`); `actions`, default, `footer` slots |
+| `Stat`           | Labelled numeric or text value                              | Required `label`, `value`; optional `unit`, `tone` (`neutral`, `accent`, `success`, `warning`)                           |
+| `PlayerIdentity` | Avatar or initials, name, subtitle, and presence state      | Required `name`; optional `subtitle`, `avatarUrl`, `status`, `statusLabel`                                               |
+| `ChatDock`       | Dismissible chat surface with a persistent reopen control   | `v-model` (`modelValue`, defaults to `true`), `title`, `reopenLabel`, `closeLabel`; default slot                         |
 
 `ChatDock` emits `update:modelValue`. When closed, its labelled button stays
 visible and announces the expanded state and controlled panel.
+
+Use `frame="ornate"` for a focal game surface that benefits from layered bronze
+edges and a restrained title plate. The standard frame remains the default, so
+small utility panels and controls stay visually quiet.
 
 ## Theme tokens
 

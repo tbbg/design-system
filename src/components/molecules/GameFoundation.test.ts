@@ -37,6 +37,19 @@ describe("game foundation components", () => {
     expect(wrapper.find("h2").text()).toBe("Inventory");
     expect(wrapper.text()).toContain("Carried items");
     expect(wrapper.text()).toContain("Three items");
+    expect(wrapper.classes()).toContain("ds-panel--frame-standard");
+  });
+
+  it("applies the ornate frame without changing panel semantics", () => {
+    const wrapper = mount(Panel, {
+      props: { title: "The old bridge", frame: "ornate" },
+      slots: { default: "Scene details" },
+    });
+
+    expect(wrapper.element.tagName).toBe("SECTION");
+    expect(wrapper.classes()).toContain("ds-panel--frame-ornate");
+    expect(wrapper.find("h2").text()).toBe("The old bridge");
+    expect(wrapper.text()).toContain("Scene details");
   });
 
   it("renders stat values and units accessibly", () => {
